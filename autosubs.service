@@ -1,6 +1,5 @@
 [Unit]
 Description=autosubs
-Requires=docker.service
 After=docker.service
 
 [Service]
