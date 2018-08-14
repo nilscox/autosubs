@@ -10,8 +10,12 @@ if [ -z "$SUBS_WATCHDIR" ]; then
   SUBS_WATCHDIR='/data/media'
 fi
 
+if [ -z "$CONTAINER_NAME" ]; then
+  CONTAINER_NAME='autosubs'
+fi
+
 docker run -dt \
-  --name autosubs \
+  --name "$CONTAINER_NAME" \
   -e SUBS_LANG="$SUBS_LANG" \
   -v "${SUBS_WATCHDIR}:/media" \
   -u "$(id -u):$(id -g)" \
