@@ -1,0 +1,12 @@
+[Unit]
+Description=autosubs
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a autosubs
+ExecStop=/usr/bin/docker stop -t 2 autosubs
+
+[Install]
+WantedBy=multi-user.target
